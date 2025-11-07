@@ -1,0 +1,17 @@
+[project]
+name = "crawlers"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "pygame>=2.6.1",
+]
+
+[dependency-groups]
+dev = [
+    "black>=25.9.0",
+    "mypy>=1.18.2",
+    "pytest>=8.4.2",
+    "ruff>=0.14.4",
+]
