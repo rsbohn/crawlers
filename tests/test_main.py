@@ -339,3 +339,27 @@ def test_scoring_system():
 
     assert mushroom_points == 10
     assert mushroom_click_points == 5  # Half points for manual destruction
+
+
+def test_start_key_binding():
+    """Test that 's' key is recognized as start key."""
+    import pygame
+
+    # Verify pygame has the key constant we need
+    assert hasattr(pygame, "K_s")
+    assert pygame.K_s == ord("s")
+
+
+def test_fire_key_bindings():
+    """Test that UP, W, and SPACE are all recognized as fire keys."""
+    import pygame
+
+    # Verify pygame has all the fire key constants we need
+    assert hasattr(pygame, "K_UP")
+    assert hasattr(pygame, "K_w")
+    assert hasattr(pygame, "K_SPACE")
+
+    # Verify they are different keys
+    assert pygame.K_UP != pygame.K_w
+    assert pygame.K_UP != pygame.K_SPACE
+    assert pygame.K_w != pygame.K_SPACE

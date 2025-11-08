@@ -65,8 +65,11 @@ crawlers/
 ## Game Controls
 
 - **ESC**: Quit the game
-- **SPACE**: Start the game
-- More controls coming soon!
+- **S**: Start the game
+- **← → or A/D**: Move player
+- **↑ or W or SPACE**: Shoot
+- **R**: Regenerate mushrooms (during gameplay)
+- **Click**: Damage/destroy mushrooms
 
 ## Roadmap
 
