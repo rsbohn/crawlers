@@ -294,7 +294,7 @@ def main() -> None:
 
     print("Welcome to Crawlers!")
     print("The crawlers move. You shoot. They turn into mushrooms.")
-    print("Press ESC to quit, SPACE to start...")
+    print("Press ESC to quit, S to start...")
 
     running = True
     game_started = False
@@ -328,7 +328,7 @@ def main() -> None:
             elif event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_ESCAPE:
                     running = False
-                elif event.key == pygame.K_SPACE:
+                elif event.key == pygame.K_s:
                     game_started = True
                     # Reset game state
                     score = 0
@@ -347,7 +347,7 @@ def main() -> None:
                     mushrooms = generate_mushroom_field(SCREEN_WIDTH, SCREEN_HEIGHT)
                     print(f"Regenerated {len(mushrooms)} mushrooms!")
                 elif (
-                    (event.key == pygame.K_UP or event.key == pygame.K_w)
+                    (event.key == pygame.K_UP or event.key == pygame.K_w or event.key == pygame.K_SPACE)
                     and game_started
                     and can_shoot
                     and len(projectiles) < 3  # Maximum 3 projectiles on screen
@@ -357,7 +357,7 @@ def main() -> None:
                     can_shoot = False
                     print(f"Projectile fired! Total projectiles: {len(projectiles)}")
                 elif (
-                    (event.key == pygame.K_UP or event.key == pygame.K_w)
+                    (event.key == pygame.K_UP or event.key == pygame.K_w or event.key == pygame.K_SPACE)
                     and game_started
                     and len(projectiles) >= 3
                 ):
@@ -557,7 +557,7 @@ def main() -> None:
             # Draw instructions
             font_small = pygame.font.Font(None, 18)
             instructions = [
-                "• ← → or A/D to move | ↑ or W to shoot",
+                "• ← → or A/D to move | ↑ or W or SPACE to shoot",
                 f"• Scoring: Mushrooms {mushroom_points}pts | Crawlers {crawler_points}pts + {crawler_segment_points}pts per segment",
                 "• Max 3 projectiles | Reload when reaching top half",
                 "• Click mushrooms to damage/destroy | R to regenerate",
@@ -576,7 +576,7 @@ def main() -> None:
 
             font_small = pygame.font.Font(None, 24)
             subtitle = font_small.render(
-                "Press SPACE to start, ESC to quit", True, WHITE
+                "Press S to start, ESC to quit", True, WHITE
             )
             subtitle_rect = subtitle.get_rect(
                 center=(SCREEN_WIDTH // 2, SCREEN_HEIGHT // 2 + 20)
